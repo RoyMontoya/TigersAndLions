@@ -28,10 +28,14 @@ class ViewController: UIViewController {
         myTiger.age = 3
         myTiger.image = UIImage(named: "BengalTiger.jpg")
         
-        myImageView.image = myTiger.image
-        nameLabel.text = myTiger.name
-        ageLabel.text = "\(myTiger.age)"
-        breedLabel.text = myTiger.breed
+        myTiger.age = myTiger.ageInTigerYearsFromAge(myTiger.age)
+        myTiger.chuff()
+        myTiger.chuffNumberofTimes(5, isLoud: false)
+        
+        self.myImageView.image = myTiger.image
+        self.nameLabel.text = myTiger.name
+        self.ageLabel.text = "\(myTiger.age)"
+        self.breedLabel.text = myTiger.breed
         
         var secondTiger = Tiger()
         secondTiger.name = "snoop"
@@ -51,7 +55,8 @@ class ViewController: UIViewController {
         forthTiger.age = 3
         forthTiger.image = UIImage(named: "SiberianTiger.jpg")
         
-        myTigers += [myTiger, secondTiger, thirdTiger, forthTiger]
+        self.myTigers += [myTiger, secondTiger, thirdTiger, forthTiger]
+        myTiger.chuffNumberOfTimes(3)
     }
 
     override func didReceiveMemoryWarning() {
@@ -64,11 +69,11 @@ class ViewController: UIViewController {
         
         repeat{
              randomNumber = Int(arc4random_uniform(UInt32(myTigers.count)))
-        }while currentIndex == randomNumber
+        }while self.currentIndex == randomNumber
         
-        currentIndex = randomNumber
+        self.currentIndex = randomNumber
         
-        let tiger = myTigers[randomNumber]
+        let tiger = self.myTigers[randomNumber]
 //        
 //            myImageView.image = tiger.image
 //            nameLabel.text = tiger.name
