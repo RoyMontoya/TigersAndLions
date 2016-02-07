@@ -14,10 +14,13 @@ class ViewController: UIViewController {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var ageLabel: UILabel!
     @IBOutlet weak var breedLabel: UILabel!
+    @IBOutlet weak var randomFactLabel: UILabel!
+    
+    
     var currentIndex = 0
     
     var myTigers:[Tiger] = []
-    
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,6 +39,8 @@ class ViewController: UIViewController {
         self.nameLabel.text = myTiger.name
         self.ageLabel.text = "\(myTiger.age)"
         self.breedLabel.text = myTiger.breed
+        self.randomFactLabel.text = myTiger.randomFact()
+        
         
         var secondTiger = Tiger()
         secondTiger.name = "snoop"
@@ -85,6 +90,7 @@ class ViewController: UIViewController {
             self.nameLabel.text = tiger.name
             self.ageLabel.text = "\(tiger.age)"
             self.breedLabel.text = tiger.breed
+            self.randomFactLabel.text = tiger.randomFact()
             
             }, completion: {
                 (finished: Bool) -> () in

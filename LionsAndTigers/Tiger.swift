@@ -42,4 +42,19 @@ struct Tiger{
         return newAge
     }
     
+    func randomFact() -> String{
+        let randomNumber = Int(arc4random_uniform(UInt32(3)))
+        
+        var randomFact: String
+        if randomNumber == 0 {
+            randomFact = "The Tyger is the biggest species in the car family"
+        }else if randomNumber == 1 {
+            randomFact = "Tigers can reach a length of 3.3 mts"
+        }else{
+            randomFact = "A group of tigers is an 'ambush' or 'streak'"
+        }
+        
+        return randomFact
+    }
+    
 }
